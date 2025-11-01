@@ -1,0 +1,86 @@
+<h1></h1>
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>プロフィール : <%= @user.profile %></p>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集する", edit_user_registration_path %>
+<% end %>
+
+<h2>ユーザーの投稿一覧</h2>
+<% @user.tweets.each do |t| %>
+  <%= t.user.name %>
+  <%= t.about %>
+<% end %>
+
+<%= link_to "一覧に戻る", tweets_path %>
+
+
+<% @user.perfumes.each do |t| %>
+        <% if t.question == "11111111" %>
+    <h6></h6>
+    <p>疾走感×歌詞×有名×青春</p>
+    <p></p>
+    <% elsif t.question == "22111111" %>
+    <h6></h6>
+    <p>バラード×歌詞×有名×青春</p>
+    <p></p>
+    <% elsif t.question == "11221111" %>
+    <h6></h6>
+    <p>疾走感×メロディー×有名×青春</p>
+    <p></p>
+     <% elsif t.question == "22221111" %>
+    <h6></h6>
+    <p>バラード×メロディー×有名×青春</p>
+    <p></p>
+     <% elsif t.question == "11112211" %>
+    <h6></h6>
+    <p>疾走感×歌詞×インディーズ×青春</p>
+    <p></p>
+     <% elsif t.question == "22112211" %>
+    <h6></h6>
+    <p>バラード×歌詞×インディーズ×青春</p>
+    <p></p>
+     <% elsif t.question == "11222211" %>
+    <h6></h6>
+    <p>疾走感×メロディー×インディーズ×青春</p>
+    <p></p>
+     <% elsif t.question == "22222211" %>
+    <h6></h6>
+    <p>バラード×メロディー、インディーズ×青春</p>
+    <p></p>
+     <% elsif t.question == "11111122" %>
+    <h6></h6>
+    <p>疾走感×歌詞×有名×浸り</p>
+    <p></p>
+     <% elsif t.question == "22111122" %>
+    <h6></h6>
+    <p>バラード×歌詞×有名×浸り</p>
+    <p></p>
+     <% elsif t.question == "11221122" %>
+    <h6></h6>
+    <p>疾走感×メロディー×有名×浸り</p>
+    <p></p>
+     <% elsif t.question == "22221122" %>
+    <h6></h6>
+    <p>バラード×メロディー×有名×浸り</p>
+    <p></p>
+     <% elsif t.question == "11112222" %>
+    <h6></h6>
+    <p>疾走感×歌詞×インディーズ×浸り</p>
+    <p></p>
+     <% elsif t.question == "22112222" %>
+    <h6></h6>
+    <p>バラード×歌詞×インディーズ×浸り</p>
+    <p></p>
+     <% elsif t.question == "11222222" %>
+    <h6></h6>
+    <p>疾走感×メロディー×インディーズ×浸り</p>
+    <p></p>
+     <% elsif t.question == "22222222" %>
+    <h6></h6>
+    <p>バラード×メロディー×インディーズ×浸り</p>
+    <p></p>
+  <% end %>
+
+<% end %>

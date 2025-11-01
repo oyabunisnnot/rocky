@@ -1,0 +1,11 @@
+<%= form_for [@tweet,@comment] do |f| %>
+ <div>
+  <%= f.label :content, "コメント内容" %><br>
+  <%= f.text_field :content, :size => 140 %> 
+ </div>
+<div>
+  <%= f.submit "更新する" %>
+</div>
+<% end %>
+
+<%= link_to "戻る", tweet_path(@tweet) %>

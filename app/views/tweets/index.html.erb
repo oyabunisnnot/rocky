@@ -1,0 +1,27 @@
+<h1>邦ロックタイプ診断</h1>
+<div class="tweets-container">
+  <% @tweets.each do |t| %>
+    <div class="tweet">
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+        <%= t.created_at %>
+        <%= link_to "コメントする", tweet_path(t.id) %>
+    <%= t.title %>
+    <%= t.about %>
+    </div>
+    <% end %>
+ </div>
+<%= link_to '診断スタート', :controller => "perfumes", :action => "new" %>
+
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+
+<% end %>
+
+
+<% @tweets.each do |t| %>
+
+  <%= link_to t.user.name, user_path(t.user.id) %> 
+     <%= t.user.email %>
+  <% end %>
+
+  
