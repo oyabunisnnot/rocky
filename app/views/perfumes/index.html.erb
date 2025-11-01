@@ -1,2 +1,20 @@
-<h1></h1>
-<%= link_to "診断を始める", new_perfume_path, class: "link" %>
+<h1>邦ロックタイプ診断</h1>
+<div class="perfumes-container">
+  <% @perfumes.each do |t| %>
+    <div class="perfume">
+    <%= link_to t.user.name, user_path(t.user.id) %> 
+     <%= t.user.email %>
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+    <%= t.created_at %>
+    <%= link_to "コメントする", perfume_path(t.id) %>
+    <%= t.title %>
+    <%= t.about %>
+    </div>
+    <% end %>
+ </div>
+<%= link_to '診断スタート', :controller => "perfumes", :action => "new" %>
+
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+

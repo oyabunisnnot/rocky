@@ -49,6 +49,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem 'sqlite3' # 追加
   gem 'dotenv-rails' # 追加
+   gem 'pg'
 end
 
 group :development do
@@ -75,5 +76,5 @@ gem 'dotenv-rails'
 
 # PostgreSQL → 本番用
 group :production do
-  gem 'pg'
+ 
 end

@@ -1,4 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  belongs_to :tweet
+  belongs_to :perfume
+
+  validates :content, presence: true
 end

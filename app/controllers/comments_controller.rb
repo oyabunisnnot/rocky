@@ -1,26 +1,31 @@
 class CommentsController < ApplicationController
- 
+  before_action :authenticate_user!
 
   def create
-    tweet = Tweet.find(params[:tweet_id])
-    comment = tweet.comments.build(comment_params)
-    comment.user_id = current_user.id
-    if comment.save
+    @perfume = Perfume.find(params[:perfume_id])
+    @comment = @perfume.comments.build(comment_params)
+    @comment.user_id = current_user.id
+
+    if @comment.save
       flash[:success] = "コメントしました"
-      redirect_back(fallback_location: root_path) 
+      redirect_to @perfume  # 投稿した香水の詳細ページへ戻る
     else
-      flash[:success] = "コメントできませんでした"
-      redirect_back(fallback_location: root_path) 
+      flash[:danger] = "コメントできませんでした"
+      redirect_to @perfume
     end
   end
- def destroy
-    comment = Comment.find(params[:id])
-    comment.destroy
-    redirect_to controller: :tweets,action: :index
+
+  def destroy
+    @perfume = Perfume.find(params[:perfume_id])
+    @comment = @perfume.comments.find(params[:id])
+    @comment.destroy
+    flash[:success] = "コメントを削除しました"
+    redirect_to @perfume
   end
+
   private
 
-    def comment_params
-      params.require(:comment).permit(:content)
-    end
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
 end

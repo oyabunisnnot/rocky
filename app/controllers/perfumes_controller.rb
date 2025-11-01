@@ -1,5 +1,6 @@
 class PerfumesController < ApplicationController
     def index
+        @perfumes = Perfume.all
     end
 
     def new
@@ -7,7 +8,9 @@ class PerfumesController < ApplicationController
     end
 
     def show
-        @perfume = Perfume.find_by(id: params[:id])
+        @perfume = Perfume.find(params[:id])
+        @comments = @perfume.comments
+        @comment = Comment.new
     end
 
     def create

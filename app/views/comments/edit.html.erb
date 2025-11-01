@@ -1,4 +1,4 @@
-<%= form_for [@tweet,@comment] do |f| %>
+<%= form_for [@perfume,@comment] do |f| %>
  <div>
   <%= f.label :content, "コメント内容" %><br>
   <%= f.text_field :content, :size => 140 %> 
@@ -8,4 +8,4 @@
 </div>
 <% end %>
 
-<%= link_to "戻る", tweet_path(@tweet) %>
+<%= link_to "戻る", tweet_path(@perfume) %>

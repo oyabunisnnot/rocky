@@ -1,8 +1,9 @@
 class TweetsController < ApplicationController
 
     def index
-     @tweets = Tweet.all
+     @tweets = Perfume.all
     end
+
     def new
     @tweet = Tweet.new
   end
@@ -18,8 +19,8 @@ class TweetsController < ApplicationController
   end
 
   def show
-        @tweet = Tweet.find(params[:id])
-        @comments = @tweet.comments
+        @perfume = Perfume.find(params[:id])
+        @comments = @perfume.comments
         @comment = Comment.new
     end
 
